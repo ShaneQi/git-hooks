@@ -1,0 +1,26 @@
+if [[ $(git remote) =~ "origin" ]]
+then
+	if [[ $(git config user.name) != "Shane Qi" ]]
+	then
+		echo "Incorrect author name."
+		exit 1
+	fi
+
+	if [[ $(git remote get-url origin) =~ "github.com" ]]
+	then
+		if [[ $(git config user.email) != "qizengtai@gmail.com" ]]
+		then
+			echo "Incorrect author email."
+			exit 1
+		fi
+	fi
+
+	if [[ $(git remote get-url origin) =~ "axxess.net" ]]
+	then
+		if [[ $(git config user.email) != "zqi@axxess.com" ]]
+		then
+			echo "Incorrect author email."
+			exit 1
+		fi
+	fi
+fi
